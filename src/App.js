@@ -27,12 +27,21 @@ function App() {
     }
   ])
 
+  //delete task
+  const deleteTask = (id) => {
+    setTasks(tasks.filter((task) => task.id !== id)) 
+  }
+
+  //toggle reminder
+  const toggleReminder = (id) => {
+    setTasks(tasks.map((task) => task.id === id ? { ...task, reminder: !task.reminder } : task ))
+  }
+
 
   return (
     <div className="container">
-      {/* example of props, you can pass this title prop to the header component */}
-      <Header title='hello dude' />
-      <Tasks tasks={tasks} />
+      <Header />
+      {tasks.length > 0 ? <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}/> : 'No Tasks!'}
     </div>
   );
 }
