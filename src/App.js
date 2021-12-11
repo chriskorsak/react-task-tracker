@@ -7,6 +7,10 @@ import Tasks from './components/Tasks';
 import { AddTask } from './components/AddTask';
 
 function App() {
+  //button that shows or hides form
+  const [showAddTask, setShowAddTask] = useState(false);
+
+  //array of default tasks
   const [tasks, setTasks] = useState([
     {
       id: 1,
@@ -51,8 +55,8 @@ function App() {
 
   return (
     <div className="container">
-      <Header />
-      <AddTask onAdd={addTask} />
+      <Header onAdd={() => setShowAddTask(!showAddTask)} showAddButton={showAddTask} />
+      {showAddTask ? <AddTask onAdd={addTask} /> : ''}
       {tasks.length > 0 ? <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}/> : 'No Tasks!'}
     </div>
   );
