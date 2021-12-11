@@ -28,6 +28,16 @@ function App() {
     }
   ])
 
+  //add task
+  const addTask = (task) => {
+    //create task id from random number
+    const id = Math.floor(Math.random() * 10000) + 1;
+    //copy task and add id to new object
+    const newTask = {id, ...task}
+    //copy tasks and add new task to group
+    setTasks([...tasks, newTask]);
+  }
+
   //delete task
   const deleteTask = (id) => {
     setTasks(tasks.filter((task) => task.id !== id)) 
@@ -42,7 +52,7 @@ function App() {
   return (
     <div className="container">
       <Header />
-      <AddTask />
+      <AddTask onAdd={addTask} />
       {tasks.length > 0 ? <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}/> : 'No Tasks!'}
     </div>
   );
