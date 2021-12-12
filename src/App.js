@@ -7,27 +7,27 @@ import Tasks from './components/Tasks';
 import { AddTask } from './components/AddTask';
 
 function App() {
-  //button that shows or hides form
+  //state of button that shows or hides form
   const [showAddTask, setShowAddTask] = useState(false);
 
-  //array of default tasks
+  //default tasks
   const [tasks, setTasks] = useState([
     {
       id: 1,
       text: 'Doctors Appointment',
-      day: 'Feb 5th at 2:30pm',
+      date: 'Feb 5th at 2:30pm',
       reminder: true
     },
     {
       id: 2,
       text: 'Meeting at School',
-      day: 'Feb 6th at 5:30pm',
+      date: 'Feb 6th at 5:30pm',
       reminder: true
     },
     {
       id: 3,
       text: 'Haircut Appointment',
-      day: 'Feb 12th at 9:00am',
+      date: 'Feb 12th at 9:00am',
       reminder: false
     }
   ])
@@ -38,6 +38,7 @@ function App() {
     const id = Math.floor(Math.random() * 10000) + 1;
     //copy task and add id to new object
     const newTask = {id, ...task}
+    console.log(newTask)
     //copy tasks and add new task to group
     setTasks([...tasks, newTask]);
   }
