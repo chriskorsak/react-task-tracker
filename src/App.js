@@ -4,7 +4,7 @@ import { useState } from "react";
 
 import Header from './components/Header';
 import Tasks from './components/Tasks';
-import { AddTask } from './components/AddTask';
+import AddTask from './components/AddTask';
 
 function App() {
   //state of button that shows or hides form
@@ -38,7 +38,6 @@ function App() {
     const id = Math.floor(Math.random() * 10000) + 1;
     //copy task and add id to new object
     const newTask = {id, ...task}
-    console.log(newTask)
     //copy tasks and add new task to group
     setTasks([...tasks, newTask]);
   }

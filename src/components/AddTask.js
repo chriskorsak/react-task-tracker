@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export const AddTask = (props) => {
+const AddTask = (props) => {
   const [text, setText] = useState('');
   const [date, setDate] = useState('');
   const [reminder, setReminder] = useState(false);
@@ -42,5 +42,7 @@ export const AddTask = (props) => {
     </form>
   )
 }
+
+export default AddTask;
 
 
